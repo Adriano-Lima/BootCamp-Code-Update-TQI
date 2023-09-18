@@ -1,0 +1,116 @@
+>> Git e GitHub
+    Repositorio aula (https://github.com/elidianaandrade/dio-curso-git-github)    
+    git config --global user.name ""
+    git config --global user.email <email sem aspas>
+
+    git config init.defaultBranch (ver a branch padrao ao inicializar)
+    git config --global init.defaultBranch main
+
+    git config --global --list (ver as configuracoes setadas)
+
+    Criar Token
+        Settings -> Developer Settings -> Personal access tokens -> tokens classic -> new token classic 
+        ao clonar um repositorio privado no lugar da senha colar o token 
+
+    Para salvar autenticacao via token (credencial)
+        git config --global credential.helper store
+
+    SSH
+        Settings -> SSH and GPG Keys
+         Verificar se tem chaves:
+            ls -a ~/.ssh
+        Gerar chave
+            ssh-keygen -t ed25519 -C "email"
+
+            eval "$(ssh-agent -s)"
+
+            ssh-add ~/.ssh/id_25519
+
+            pegar a chave publica
+                cd ~/.ssh
+                ls
+                cat chave-publica
+                copiar 
+                Adicionar na pagina do GitHub (Settings -> SSH and GPG Keys)
+
+
+    git clone <link> nome-do-diretorio-local 
+
+    Clonar uma branch apenas 
+        git clone URL --branch nome-branch --single-branch 
+
+    git remote add origin <link>
+
+    Markdown 
+        https://redme.so 
+
+    git log (ver o historico de commits )
+
+    Restaurar 
+        git restore arquivo (descarta todas as alteracoes feitas)
+
+    Voltar para untracked
+        git reset arquivo 
+
+    Alterar a mensagem do ultimo commit
+        git commit --amend -m "mensagem"
+
+    Desfazer commit 
+        copia o hash do commit que quero retornar 
+        git reset --soft <hash> (volta ao ponto de ter dado o comando git add)
+        
+        git reset --mixed <hash> (volta ao ponto de untracked, antes do git add)
+
+        git reset --hard <hard> (desfaz todas as alteracoes, apaga todas as alteracoes)
+
+    Branches 
+        Criar
+            git checkout -b <nome>
+        
+        Mudar 
+            git checkout <nome>
+        
+        Listar ultimo commit 
+            git branch -v
+
+        Juntar 
+            na na main 
+                git merge teste (teste eh o nome de outra branch)
+        
+        Deletar branch 
+            git branch -d <nome>   
+
+        Baixar as altualizacoes do remote sem mesclar com o local
+            git fetch 
+
+            Ver as alteracoes feitas 
+                git diff main origin/main
+
+            Mesclar as alteracoes baixadas 
+                git merge origin/main    
+
+        Criar nova branch sem lovar as alteracoes que estava fazendo 
+            git stash (salva as alteracoes feitas)
+            git checkout -b <nova branch sem as alteracoes>
+            voltar para branch anterior 
+                git stash apply (para trazer as alteracoes) 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
